@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - finalproject</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/finalproject.styles.css" asp-append-version="true" />
+</head>
+
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm bg-light navbar-light">
+            <a class="navbar-brand text-black" href="#"><img src="~/imagesP/season-logo2.png"> </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li> <a class="nav-link" asp-controller="useralls" asp-action="customerhome">Home</a></li>
+                    <li> <a class="nav-link" asp-controller="items" asp-action="imageslider">Items Slider</a></li>
+                    <li><a class="nav-link" asp-controller="orders" asp-action="my_purchase">My purchase</a></li>
+                    <li><a class="nav-link" asp-controller="useralls" asp-action="registration">Register</a></li>
+                    <li><a class="nav-link" asp-controller="useralls" asp-action="logout">Logout</a></li>
+
+                </ul>
+                </div>
+            </nav>
+    </header>
+
+    <h1 style=" text-align:center; padding:80px 0px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+        Welcome  <span style="color:red"> @ViewData["name"] </span>
+    </h1>
+
+    <div class="jumbotron">
+        <h1 class="display-6 text-center">Season Lights Accessories</h1>
+        <p class="lead">
+            شركة اكسسوارات عصرية ذات جودة و فخامة مميزة 💎 نلبي ذوق كل امرأة متميزة متاجرنا
+            أكثر من 100 فرع داخل المملكة مع تقديم تجربة فريدة وخدمة عملاء مميزة
+        </p>
+    </div>
+
+    <div class="container">
+        <main role="main" class="pb-6">
+            @RenderBody()
+        </main>
+    </div>
+
+    <h1 style="margin-top: 80px;">Contact us</h1>
+    <hr>
+    <footer>
+        <div class="row">
+            <div class="col-md-8">
+                <i class="fa fa-home fa-2x"></i><label>Madinah Almunawarah KSA</label>
+                <i class="fa fa-phone fa-2x" style="padding-left:10px;"></i><label>+966522186933</label>
+                <i class="fa fa-envelope fa-2x" style="padding-right:10px; padding-left:10px;"></i><label>season1@gmail.com</label>
+                <a href="#"><i class="fa fa-twitter fa-2x" id="f" style="padding-right:20px; padding-left:20px"></i></a>
+                <a href="#"><i class="fa fa-instagram fa-2x" id="f" style="padding-right:20px"></i></a>
+                <a href="#"><i class="fa fa-facebook fa-2x" id="f"></i></a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+    <style>
+
+            body {
+            background-image: url(imagesP/pro1.PNG);
+        }
+
+    </style>
+</body>
+</html>

@@ -1,0 +1,85 @@
+﻿@model finalproject.Models.userall
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+    <form asp-action="Create" id="login-form">
+        <h1>Create</h1>
+        <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="password" class="control-label"></label>
+                <input asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="role" class="control-label"></label>
+                <input asp-for="role" class="form-control" />
+                <span asp-validation-for="role" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="registdate" class="control-label"></label>
+                <input asp-for="registdate" class="form-control" />
+                <span asp-validation-for="registdate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+            </form>
+<div class="a">
+    <a asp-action="Index">Back to List</a>
+</div>
+<style>
+    body {
+        background-color:whitesmoke;
+    }
+
+    #login-form {
+        background-color: rgb(127, 124, 121,0.54);
+        border: 2px solid rgba(4, 4, 4, 0.8);
+        border-radius:20px;
+        margin: 0px 460px;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        font-size: large;
+        width: 410px;
+        padding-left: 40px;
+        padding-right: 40px;
+        margin: 30px 450px;
+    }
+
+    h1 {
+        text-align: center;
+        padding-top: 50PX;
+    }
+
+    .form-group {
+        padding-bottom: 10px;
+        padding-top: 20px;
+    }
+
+
+    .btn-success {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 20px 0;
+        text-align: center;
+        padding: 5px 133px;
+    }
+    .a{
+        margin: 30px 450px;
+    }
+</style>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

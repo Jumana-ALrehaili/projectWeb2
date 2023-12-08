@@ -1,0 +1,69 @@
+﻿@model IEnumerable<finalproject.Models.orderdetails>
+
+@{
+    ViewData["Title"] = "orderdetails";
+}
+
+<h1>Order Details</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="container">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.buydate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.totalprice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.quantity)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.buydate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.totalprice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantity)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    table {
+        text-align: center;
+        width: 70%;
+    }
+
+    th {
+        border: inset;
+        background-color: rgb(38, 38, 38);
+        color: #fff;
+        padding: 10px;
+    }
+
+    td {
+        border: inset;
+        padding: 10px
+    }
+
+</style>

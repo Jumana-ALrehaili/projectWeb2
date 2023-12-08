@@ -1,0 +1,67 @@
+﻿@model finalproject.Models.userall
+
+
+<form id="login-form" asp-action="login">
+    <div class="containerr">
+        <h1>Login</h1>
+        <label class="login-data">Username:</label>
+        <input id="name" name="na" class="form-control" />
+
+        <label class="login-data">Password:</label>
+        <input type="password" id="password" name="pa" class="form-control" onmouseover="autoc()" /> <br />
+
+        <input type="submit" value="Login" class="btn btn-success" onmouseover="autoc()" />
+        <div>
+            <input type="checkbox" id="rememberme" name="remember">
+            <label for="remember">Auto login</label>
+
+            <div><label>Not registered?</label><a asp-action="create"> Create account</a></div>
+            <p style="color:red"> @ViewData["message"]</p>
+
+        </div>
+
+    </div>  
+</form>
+
+<style>
+    body {
+        background-image: url(imagesP/bg6.jpg);
+    }
+
+    .containerr {
+        padding-left:40px;
+        padding-right: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: rgb(127, 124, 121,0.54);
+        border: 2px solid rgba(4, 4, 4, 0.8);
+        border-radius: 20px;
+    }
+
+    #login-form {
+        margin: 150px 460px;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        font-size: large;
+        width: 410px;
+    }
+
+    h1 {
+        text-align: center;
+        padding-top: 50PX;
+    }
+
+    .login-data {
+        padding-bottom: 10px;
+        padding-top: 20px;
+    }
+
+    .btn-success {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 20px 0;
+        text-align: center;
+        padding: 5px 105px;
+    }
+</style>

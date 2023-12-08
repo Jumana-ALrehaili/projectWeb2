@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "Send email";
+}
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<body>
+
+
+    <form asp-action="email" id="login-form">
+        <h1>Send Email</h1> <hr />
+        <div class="form-group">
+            <label class="control-label">Customer Email Address</label>
+            <input name="address" class="form-control" /> <br />
+        </div>
+        <label for="subject" class="control-label">Message</label>
+        <div class="form-group"><textarea name="subject" rows="6" cols="35"> </textarea> </div>
+        <input type="submit" value="Send Email" class="btn btn-success" />
+        <p> @ViewData["message"]</p>
+    </form>
+</body>
+
+<style>
+    body {
+        background-image: url(imagesP/bg6.jpg);
+    }
+
+    #login-form {
+        background-color: rgb(127, 124, 121,0.54);
+        border: 2px solid rgba(4, 4, 4, 0.8);
+        border-radius: 20px;
+        margin: 0px 460px;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        font-size: large;
+        width: 410px;
+        padding-left: 40px;
+        padding-right: 40px;
+        margin: 30px 450px;
+    }
+
+    h1 {
+        text-align: center;
+        padding-top: 50PX;
+    }
+
+    .form-group {
+        padding-bottom: 10px;
+        padding-top: 20px;
+    }
+
+
+    .btn-success {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 20px 0;
+        text-align: center;
+        padding: 5px 119px;
+    }
+</style>
+
+

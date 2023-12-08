@@ -1,0 +1,104 @@
+﻿@model finalproject.Models.userall
+
+@{
+    ViewData["Title"] = "registration";
+}
+﻿@{
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="registration" id="login-form">
+            <h1>Registration here</h1>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label">Username</label>
+                <input asp-for="name" class="form-control" id="name" required />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="password" class="control-label" id="passlabel">Password</label>
+                <input asp-for="password" class="form-control" id="pass1" required />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="password" class="control-label" id="passlabel2">Confirm password</label>
+                <input asp-for="password" class="form-control" id="pass2" required />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Register" class="btn btn-success" />
+            </div>
+            <p>Are you registered? <a asp-action="login">login here</a></p>
+        </form>
+        <p style="color:red"> @ViewData["message"] </p>
+    </div>
+   
+</div>
+
+
+
+<script>
+    document.getElementById("pass2").onchange = function (e) {
+        var pass1 = document.getElementById("pass1").value;
+        var pass2 = document.getElementById("pass2").value;
+
+        if (pass2 !== pass1) {
+            e.preventDefault();
+            alert("Passwords don't match");
+            document.getElementById("passlabel").style = "color:red";
+            document.getElementById("passlabel2").style = "color:red";
+        }
+    }
+</script>
+<style>
+    body {
+        background-image: url(imagesP/bg6.jpg);
+    }
+
+    #login-form {
+        background-color: rgb(127, 124, 121,0.54);
+        border: 2px solid rgba(4, 4, 4, 0.8);
+        border-radius: 20px;
+        margin: 0px 460px;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        font-size: large;
+        width: 410px;
+        padding-left: 40px;
+        padding-right: 40px;
+        margin: 30px 450px;
+    }
+
+    h1 {
+        text-align: center;
+        padding-top: 50PX;
+    }
+
+    .form-group {
+        padding-bottom: 10px;
+        padding-top: 20px;
+    }
+
+
+    .btn-success {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 20px 0;
+        text-align: center;
+        padding: 5px 133px;
+    }
+</style>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+

@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "dashbourd";
+}
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<html>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Category');
+        data.addColumn('number', 'items');
+        data.addRows([
+            ['Necklaces', @ViewData["d1"]],
+            ['Bracelets', @ViewData["d2"]],
+            ['Rings', @ViewData["d3"]],
+        ]);
+        var options = {
+            'title': 'Number of items',
+            'width': 400,
+            'height': 300
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    }
+</script>
+
+
+<body>
+    <div id="chart_div" style="text-align:center"></div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class='card'>
+                <div class='card-header bg-warning text-center'>Necklaces</div>
+                <div class='card-body'> <img src='~/imagesP/pro1.png' ; width='50px' /> </div>
+                <div class='card-footer'>
+                    Number of Necklaces <div> @ViewData["d1"] </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class='card'>
+                <div class='card-header bg-warning text-center'>Bracelets</div>
+                <div class='card-body'><img src='~/imagesP/pro3.png' width='50px'></div>
+                <div class='card-footer'>
+                    Number of Bracelets <div>@ViewData["d2"] </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class='card'>
+                <div class='card-header bg-warning text-center'>Rings</div>
+                <div class='card-body'> <img src='~/imagesP/pro2.png' ; width='50px' /> </div>
+                <div class='card-footer'>
+                    Number of Rings <div> @ViewData["d3"] </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
+
+
+

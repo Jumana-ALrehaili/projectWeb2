@@ -1,0 +1,131 @@
+﻿@model IEnumerable<finalproject.Models.items>
+
+@{
+    ViewData["Title"] = "index"; }
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+
+
+
+    @if ((string)ViewData["role"] == "admin")
+    {
+<p>
+    <!-- Trigger the modal with a button -->
+   <br><br> <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#insertModal"> Add new Item</button> <br><br>
+    @await Html.PartialAsync("addnew",new items())
+</p>
+    }
+
+    <table class="container">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.descr)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.discount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.category)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.imagefilename)
+                </th>
+                <th colspan="4">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                    @Html.DisplayFor(modelItem => item.descr)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.discount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.category)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.imagefilename)
+                </td>
+                  
+                        @if ((string)ViewData["role"] == "admin")
+
+                        {
+                   
+                            <td>
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="@("#editModal-" + @item.Id)">edit</button>  
+                            @await Html.PartialAsync("pedit",item)
+                            </td>
+                            <td>
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="@("#detailModal-" + @item.Id)">Detail</button>
+                            @await Html.PartialAsync("pdet",item)
+                             </td>
+                             <td>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="@("#deleteModal-" + @item.Id)">Delete</button> 
+                            @await Html.PartialAsync("pdel",item) 
+                            </td>
+
+                        }
+                        else
+                        {   <td>
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="@("#detailModal-" + @item.Id)">Detail</button>
+                            @await Html.PartialAsync("pdet",item) </td>
+                        }
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a asp-controller="useralls" asp-action="adminhome">back home</a>
+
+<style>
+    table {
+        text-align: center;
+        width: 70%;
+    }
+
+    th {
+        border: inset;
+        background-color: rgb(38, 38, 38);
+        color: #fff;
+        padding: 10px;
+    }
+
+    td {
+        border: inset;
+        padding: 10px
+    }
+
+</style>
+
+

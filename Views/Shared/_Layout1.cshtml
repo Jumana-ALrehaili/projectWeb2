@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - finalproject</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/finalproject.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm bg-light navbar-light">
+            <a class="navbar-brand text-black" href="#"><img src="~/imagesP/season-logo2.png"> </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li> <a class="nav-link" asp-controller="useralls" asp-action="adminhome"> home</a></li>
+                    <li><a class="nav-link" asp-controller="items" asp-action="index">items managment</a></li>
+                    <li> <a class="nav-link" asp-controller="items" asp-action="list">list items</a></li>
+                    <li><a class="nav-link" asp-controller="useralls" asp-action="email">send email</a></li>
+                    <li><a class="nav-link" asp-controller="useralls" asp-action="customer_search">User Search</a></li>
+                    <li><a class="nav-link" asp-controller="useralls" asp-action="index">User managment</a></li>
+                    <li><a class="nav-link" asp-controller="useralls" asp-action="addadmin">Add Admin</a></li>
+                    <li><a class="nav-link" asp-controller="orders" asp-action="report">report page</a></li>
+                    <li><a class="nav-link" asp-controller="items" asp-action="dashbourd">dashboard</a></li>
+                    <li><a class="nav-link" asp-controller="useralls" asp-action="logout">Logout</a></li>
+
+                </ul>
+                </div>
+            </nav>
+
+        <h1 style=" text-align:center; padding:80px 0px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+            Welcome  <span style="color:red"> @ViewData["name"] </span>
+        </h1>
+
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - finalproject - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

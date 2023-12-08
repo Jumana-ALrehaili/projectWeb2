@@ -1,0 +1,68 @@
+﻿@model IEnumerable<finalproject.Models.report>
+
+@{
+    ViewData["Title"] = "report";
+}
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<table class="container">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customername)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.total)
+            </th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.customername)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.total) SR
+                </td>
+                <td>
+                    <a asp-action="orderdetails" asp-route-id="@item.Id">view</a>
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    table {
+        text-align: center;
+        width: 70%;
+    }
+
+    th {
+        border: inset;
+        background-color: rgb(38, 38, 38);
+        color: #fff;
+        padding: 10px;
+    }
+
+    td {
+        border: inset;
+        padding: 10px
+    }
+
+</style>
+
